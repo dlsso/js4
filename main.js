@@ -23,3 +23,17 @@ for(i=1; i<=volunteersNumber; i++) {
 alert("There are " + victimsNumber + " people in need and " + volunteersNumber + " volunteers.\n"
 		+ "In need: " + names + ".\n"
 		+ "Volunteers: " + volNames + ".");
+
+// Find victim street
+inNeed = prompt("Who needs help?");
+index = names.indexOf(inNeed);
+street = streets[index];
+
+// Match volunteer street
+for(var i=0; i<volStreets.length; i++) {
+    if(volStreets[i] === street){
+		alert(volNames[i] + " is on the same street!");
+     }
+}
+
+
