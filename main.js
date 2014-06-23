@@ -31,7 +31,7 @@ street = streets[index];
 
 // Match volunteer street
 for(var i=0; i<volStreets.length; i++) {
-    if(volStreets[i] === street){
+    if(volStreets[i].toLowerCase() === street.toLowerCase()){
 		alert(volNames[i] + " is on the same street!");
      }
     else {
