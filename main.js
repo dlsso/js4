@@ -1,4 +1,4 @@
-var victimsNumber = prompt("Please enter the number of victims.")
+var victimsNumber = prompt("Please enter the number of people in need.")
 var names = []
 var numbers = []
 var streets = []
@@ -34,6 +34,7 @@ for(var i=0; i<volStreets.length; i++) {
     if(volStreets[i] === street){
 		alert(volNames[i] + " is on the same street!");
      }
+    else {
+    	alert("No one nearby!")
+    }
 }
-
-
