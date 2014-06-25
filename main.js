@@ -6,6 +6,8 @@ var volunteersNumber
 var volNames = []
 var volNumbers = []
 var volStreets = []
+var index
+var street
 
 $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").val()
 
@@ -49,8 +51,18 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 				}
 
 				$("#content").append("<p>There are " + victimsNumber + " people in need and " + volunteersNumber + " volunteers.<p>"
-		+ "<p>In need: " + names + ".</p>"
-		+ "<p>Volunteers: " + volNames + ".</p>")
+					+ "<p>In need: " + names + "</p>"
+					+ "<p>Volunteers: " + volNames + "</p>"
+				)
+
+				$("#content").append('<h1>Who needs help right now?</h1>')
+				$("#content").append('Name: <input id="inNeed" type="text" name="inNeed"><br><br>')
+				$("#content").append('<button id="inNeed-btn">Submit</button> <br><br>')
+				$("#inNeed-btn").click(function() {
+					inNeed = $("#inNeed").val()
+					index = names.indexOf(inNeed)
+					street = streets[index]
+				})
 
 			})
 
@@ -67,22 +79,17 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 
 
 
-
-// alert("There are " + victimsNumber + " people in need and " + volunteersNumber + " volunteers.\n"
-// 		+ "In need: " + names + ".\n"
-// 		+ "Volunteers: " + volNames + ".");
-
-// // Find victim street
+// Find victim street
 // var inNeed = prompt("Who needs help?");
-// var index = names.indexOf(inNeed);
-// var street = streets[index];
+// index = names.indexOf(inNeed);
+// street = streets[index];
 
-// // Match volunteer street
-// for(var i=0; i<volStreets.length; i++) {
-//     if(volStreets[i].toLowerCase() === street.toLowerCase()){
-// 		alert(volNames[i] + " is on the same street!");
-//      }
-//     else {
-//     	alert("No one nearby!")
-//     }
-// }
+// Match volunteer street
+for(var i=0; i<volStreets.length; i++) {
+    if(volStreets[i].toLowerCase() === street.toLowerCase()){
+		alert(volNames[i] + " is on the same street!");
+     }
+    else {
+    	alert("No one nearby!")
+    }
+}
