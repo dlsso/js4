@@ -1,4 +1,4 @@
-var victimsNumber = +prompt("Please enter the number of people in need.")
+//var victimsNumber = +prompt("Please enter the number of people in need.")
 var names = []
 var numbers = []
 var streets = []
@@ -10,7 +10,7 @@ for(var i=1; i<=victimsNumber; i++) {
 	streets.push(prompt(i + ". Street:"));
 }
 
-var volunteersNumber = prompt("Please enter the number of volunteers.")
+//var volunteersNumber = prompt("Please enter the number of volunteers.")
 var volNames = []
 var volNumbers = []
 var volStreets = []
