@@ -2,22 +2,30 @@ var victimsNumber
 var names = []
 var numbers = []
 var streets = []
+var namesCount
 
 $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").val()
-	// for(var i=1; i<=victimsNumber; i++) {
-	// 	names.push(prompt(i + ". Name:"));
-	// 	numbers.push(prompt(i + ". Phone number:"));
-	// 	streets.push(prompt(i + ". Street:"));
-	// }
 
 	for(var i=1; i<=victimsNumber; i++) {
-		$("#content").append('Name: <input id="names" type="text" name="names"> ')
-		$("#content").append('Phone number: <input id="numbers" type="text" name="numbers"> ')
-		$("#content").append('Street: <input id="streets" type="text" name="streets"><br><br>')
+		$("#content").append('Name: <input id=\'names'+i + '\' type="text" name="names"> ')
+		$("#content").append('Phone number: <input id=\'numbers'+i + '\' type="text" name="numbers"> ')
+		$("#content").append('Street: <input id=\'streets'+i + '\' type="text" name="streets"><br><br>')
 	}
-	
+
 	$("#content").append('<button id="victimInfo-btn">Submit</button> <br><br>')
 		$("#victimInfo-btn").click(function() {
+
+				for(var i=1; i<=victimsNumber; i++) {
+					names.push($("#names" + i).val());
+					numbers.push($("#numbers" + i).val());
+					streets.push($("#streets"+ i).val());
+				}
+
+
+
+
+
+
 			$("#content").append('<h1>How many Volunteers?</h1>')
 			$("#content").append('<input id="volunteersNumber" type="text" name="volunteerssNumber"><br><br>')
 			$("#content").append('<button id="victimsNumber-btn">Go!</button><br><br><br>')
