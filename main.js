@@ -13,23 +13,21 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 	}
 
 	$("#content").append('<button id="victimInfo-btn">Submit</button> <br><br>')
-		$("#victimInfo-btn").click(function() {
-
-				for(var i=1; i<=victimsNumber; i++) {
-					names.push($("#names" + i).val());
-					numbers.push($("#numbers" + i).val());
-					streets.push($("#streets"+ i).val());
-				}
 
 
 
+	$("#victimInfo-btn").click(function() {
 
+		for(var i=1; i<=victimsNumber; i++) {
+			names.push($("#names" + i).val());
+			numbers.push($("#numbers" + i).val());
+			streets.push($("#streets"+ i).val());
+		}
 
-
-			$("#content").append('<h1>How many Volunteers?</h1>')
-			$("#content").append('<input id="volunteersNumber" type="text" name="volunteerssNumber"><br><br>')
-			$("#content").append('<button id="victimsNumber-btn">Go!</button><br><br><br>')
-		})
+		$("#content").append('<h1>How many Volunteers?</h1>')
+		$("#content").append('<input id="volunteersNumber" type="text" name="volunteerssNumber"><br><br>')
+		$("#content").append('<button id="volunteersNumber-btn">Go!</button><br><br><br>')
+	})
 
 
 
