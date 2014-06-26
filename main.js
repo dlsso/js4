@@ -11,6 +11,8 @@ var street
 
 $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").val()
 
+	$("#victimsNumber-btn").hide()
+
 	for(var i=1; i<=victimsNumber; i++) {
 		$("#content").append(i+'. Name: <input id=\'names'+i + '\' type="text" name="names"> ')
 		$("#content").append('Phone number: <input id=\'numbers'+i + '\' type="text" name="numbers"> ')
@@ -23,6 +25,8 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 
 	$("#victimInfo-btn").click(function() {
 
+		$("#victimInfo-btn").hide()
+
 		for(var i=1; i<=victimsNumber; i++) {
 			names.push($("#names" + i).val());
 			numbers.push($("#numbers" + i).val());
@@ -34,6 +38,9 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 		$("#content").append('<button id="volunteersNumber-btn">Go!</button><br><br><br>')
 
 		$("#volunteersNumber-btn").click(function() {volunteersNumber = $("#volunteersNumber").val()
+
+			$("#volunteersNumber-btn").hide()
+
 			for(var i=1; i<=volunteersNumber; i++) {
 				$("#content").append(i+'. Name: <input id=\'volNames'+i + '\' type="text" name="volNames"> ')
 				$("#content").append('Phone number: <input id=\'volNumbers'+i + '\' type="text" name="volNumbers"> ')
@@ -43,6 +50,8 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 			$("#content").append('<button id="volunteerInfo-btn">Submit</button> <br><br>')
 
 			$("#volunteerInfo-btn").click(function() {
+
+				$("#volunteerInfo-btn").hide()
 
 				for(var i=1; i<=volunteersNumber; i++) {
 					volNames.push($("#volNames" + i).val());
