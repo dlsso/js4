@@ -70,8 +70,10 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 				$("#content").append('<button id="inNeed-btn">Go!</button> <br><br>')
 				$("#inNeed-btn").click(function() {
 					inNeed = $("#inNeed").val().toLowerCase()
+					lnames = []
 					$.each( names, function(i,string) { lnames.push( string.toLowerCase() )})
 					index = lnames.indexOf(inNeed)
+					if(index === -1){alert("Please check the name!")}
 					street = streets[index]
 
 				var match = false
@@ -80,7 +82,6 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 						alert(volNames[i] + " is on the same street!");
 						return match = true
 					}
-
    				}
    				if(match === false){alert("No one nearby!")}
 
