@@ -1,3 +1,4 @@
+// Varibles are global because we hadn't covered scope yet
 var victimsNumber
 var names = []
 var lnames = []
@@ -9,6 +10,7 @@ var volNumbers = []
 var volStreets = []
 var index
 var street
+
 
 $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").val()
 
@@ -22,7 +24,10 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 
 	$("#content").append('<button id="victimInfo-btn">Submit</button> <br><br>')
 
-
+	$("#names1").focus()
+	$('html, body').animate({
+	    scrollTop: $("#names1").offset().top
+	}, 500);
 
 	$("#victimInfo-btn").click(function() {
 
@@ -34,9 +39,14 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 			streets.push($("#streets"+ i).val());
 		}
 
-		$("#content").append('<h1>How many Volunteers?</h1>')
+		$("#content").append('<h1 id="vol">How many Volunteers?</h1>')
 		$("#content").append('<input id="volunteersNumber" type="text" name="volunteerssNumber"><br><br>')
 		$("#content").append('<button id="volunteersNumber-btn">Go!</button><br><br><br>')
+
+		$("#volunteersNumber").focus()
+		$('html, body').animate({
+		    scrollTop: $("#vol").offset().top
+		}, 500);
 
 		$("#volunteersNumber-btn").click(function() {volunteersNumber = $("#volunteersNumber").val()
 
@@ -50,6 +60,11 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 
 			$("#content").append('<button id="volunteerInfo-btn">Submit</button> <br><br>')
 
+			$("#volNames1").focus()
+			$('html, body').animate({
+			    scrollTop: $("#volNames1").offset().top
+			}, 500);
+
 			$("#volunteerInfo-btn").click(function() {
 
 				$("#volunteerInfo-btn").hide()
@@ -60,7 +75,7 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 					volStreets.push($("#volStreets"+ i).val());
 				}
 
-				$("#content").append("<p>There are " + victimsNumber + " people in need and " + volunteersNumber + " volunteers.<p>"
+				$("#content").append("<p id='summary'>There are " + victimsNumber + " people in need and " + volunteersNumber + " volunteers.<p>"
 					+ "<p>In need: " + names + "</p>"
 					+ "<p>Volunteers: " + volNames + "</p><br><br>"
 				)
@@ -68,22 +83,36 @@ $("#victimsNumber-btn").click(function() {victimsNumber = $("#victimsNumber").va
 				$("#content").append('<h1>Who needs help right now?</h1>')
 				$("#content").append('Name: <input id="inNeed" type="text" name="inNeed"><br><br>')
 				$("#content").append('<button id="inNeed-btn">Go!</button> <br><br>')
+
+				$("#inNeed").focus()
+				// Scroll not necessary because focused item forces scroll in this case
+				// $('html, body').animate({
+				//     scrollTop: $("#summary").offset().top
+				// }, 500);
+
 				$("#inNeed-btn").click(function() {
+
 					inNeed = $("#inNeed").val().toLowerCase()
 					lnames = []
 					$.each( names, function(i,string) { lnames.push( string.toLowerCase() )})
 					index = lnames.indexOf(inNeed)
-					if(index === -1){alert("Please check the name!")}
+					if(index === -1){$("#content").append("<h2 class='red'>Please check the name!</h2>")}
 					street = streets[index]
 
-				var match = false
-				for(var i=0; i<volStreets.length; i++) {
-		    		if(volStreets[i].toLowerCase() === street.toLowerCase()){
-						alert(volNames[i] + " is on the same street!");
-						return match = true
-					}
-   				}
-   				if(match === false){alert("No one nearby!")}
+				if(street) {
+					var match = false
+					for(var i=0; i<volStreets.length; i++) {
+			    		if(volStreets[i].toLowerCase() === street.toLowerCase()){
+							$("#content").append("<h2 class='green'>" + volNames[i] + " is on the same street!</h2>");
+							match = true
+						}
+	   				}
+	   				if(match === false){$("#content").append("<h2 class='yellow'>No one nearby!</h2>")}
+				}
+
+   				$('html, body').animate({
+   				    scrollTop: $("h2:last").offset().top
+   				}, 500);
 
 				})
 			})

@@ -4,7 +4,7 @@ body{background:#222; color: #000}
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 960px;
-	background: #ccc;
+	background: #ddd;
 }
 
 header{
@@ -64,4 +64,16 @@ nav a{
 
 .full-width{
 	width: 100%;
+}
+
+.green{
+	color: #292;
+}
+
+.red{
+	color: #c22;
+}
+
+.yellow{
+	color: #fa0;
 }
